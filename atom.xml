@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-12T10:20:53.663Z</updated>
+  <updated>2017-05-12T11:07:39.880Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,14 +16,95 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Surf Scientifically</title>
+    <link href="http://yoursite.com/2017/05/12/Surf%20Scientifically/"/>
+    <id>http://yoursite.com/2017/05/12/Surf Scientifically/</id>
+    <published>2017-05-12T11:05:17.171Z</published>
+    <updated>2017-05-12T11:07:39.880Z</updated>
+    
+    <content type="html"><![CDATA[<p>前言介绍了一下背景, 然后给出了购买VPS， 配置Windows, macOS, Ubuntu, Android, iOS, macOS, 路由器的方法. 办公室或者家里的路由器配置好后, 任意设备连上Wifi就可以科学上网了! 在外面只有4G或者别人家的wifi时, 如果想科学上网, 就需要打开各自的配置应用配置好再科学上网.</p>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Across the Great Fire Wall, you will see the world.<br>岂求病魔早日战胜方校长于事无补, 但追求自由总有道路.<br>科学冲浪的方式大致有下图(来自维基)的几种方式:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/CrossGFW.png" alt="">  </p>
+<p>本文选择的是较为稳定的借助代理服务器和Shadowsocks来实现科学冲浪!<br>Shadowsocks, 一个开源协议工程, 中国的一个叫 clowwindy 的程序员在2012年创作的, 项目在Github上维护, 但作者15年8月被请去喝茶, 遂清空整个 <a href="https://github.com/shadowsocks/shadowsocks" target="_blank" rel="external">Shadowsocks Github仓库</a>, 并写道”Removed according to regulations.”, 但多个实现协议仍然可用. <a href="https://github.com/shadowsocks" target="_blank" rel="external">Shasowsocks项目</a> 至今仍在Github维护, 活跃度很高, 多个平台的版本都在持续更新, 目前的官方网站为 <a href="http://shadowsocks.org/" target="_blank" rel="external">Shadowsocks官网</a>, download页面可以下载各个平台的Shadowsocks应用:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/clients.png" alt="download"></p>
+<p>Shadowssocks原理如下图:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/Shadowsocks%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="Shadowsocks原理"></p>
+<p>之前一直使用Lantern科学上网的, 无奈16年下半年开始就不尽人意了, 17年元旦去武汉玩, 经同学演示VPS, 瞬间觉得姿势水平有待提高, 开始吧!</p>
+<hr>
+<h2 id="购买VPS"><a href="#购买VPS" class="headerlink" title="购买VPS"></a>购买VPS</h2><p>VPS, Virtual Private Server(虚拟专用服务器)的简称, 购买VPS就是购买上图中的  SS Server. VPS可以用来学习Linux, 建站等, 不过这里我们只用它来实现科学上网.</p>
+<p><a href="http://banwagong.cn/" target="_blank" rel="external">搬瓦工中文网</a>, 可以在这里先查看下搬瓦工的中文介绍和优惠活动. 而且可以直接点进VPS的购买链接, 我选择的是凤凰城的这个方案:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/%E5%87%A4%E5%87%B0%E5%9F%8E%E6%96%B9%E6%A1%88.png" alt="凤凰城方案">  </p>
+<p>方案选好, 那就愉快的点进 <a href="https://bwh1.net/cart.php?a=confproduct&amp;i=1" target="_blank" rel="external">凤凰城方案</a>, 选择18.99刀一年, 添加到购物车:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/Product%20Configuration.png" alt="Product Configuration">  </p>
+<p>然后, 输入搬瓦工给的优惠码, 结账:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/%E4%BC%98%E6%83%A0%E7%A0%81.png" alt="结账">  </p>
+<p>填写个人信息, 除了邮箱其他据说可以不真实, 选择支付宝(真接地气, 软妹币就钦定你来赚了):<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/%E4%BF%A1%E6%81%AF.png" alt="个人信息">  </p>
+<p>接下来就是扫二维码付款了, 18.08美刀,  实际用支付宝支付126.87软妹币,  支付完成后页面居然无跳转, 一脸懵逼的我以为遇到了骗子, 还好回到 <a href="https://bwh1.net/index.php" target="_blank" rel="external">搬瓦工主页</a>, 点击右上角用户名, 然后:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/services.png" alt="services"></p>
+<p>然后出现以下内容:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/Product.png" alt="Product"><br>Manage里面可以查看IP地址等信息, Control Panel可以查看使用IP, SSH Port, 各种信息等.</p>
+<p>点开KiwiVM Control Panel, 可以看到VPS服务器的详细信息:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/ControlPanel.png" alt="ControlPanel"></p>
+<p>可以参考搬瓦工中文网的 <a href="http://banwagong.cn/anzhuang.html" target="_blank" rel="external">基础 - 搬瓦工VPS重新安装Linux系统过程及注意事项</a> 重新安装Linux操作系统, 或者直接上图点击左下角的Shadowsocks Server, Install … ; 安装完成后点击 GoBack, 就可以看到加密方式, 端口, 密码等, 往下拉还给出了Windows使用Shadowsocks的科学上网示例, 图中显示了你的Server IP, Server Port, Password, Encryption等. 这几个东西就是你的各种设备的科学上网依据. 可以截张图记住它们:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/Shadowsocks.png" alt="Shadowsocks">  </p>
+<hr>
+<h2 id="Windows-科学上网"><a href="#Windows-科学上网" class="headerlink" title="Windows 科学上网"></a>Windows 科学上网</h2><p>到 <a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">Shadowsocks官网的download页面</a>, 点进 <a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">shadowsocks-win Github</a>, 下载 Shdowsocks-3.4.2.1.zip(2017年1月9日), 解压到合适的位置, 点击Shadowsocks.exe, 按照上图填写信息(你的VPS服务器IP, 服务器端口, 密码和加密方式). 填写完毕后, 任务栏右边的纸飞机图标, 右键, 选择Enable System Proxy, Mode可以选择PCA(防火墙白名单正常, GFWList走代理, 建议选择此模式) 和 Global(全局代理). 打开浏览器, 输入 www.google.com, 第一次可能需要等一段时间, 之后就愉快的玩耍吧!  </p>
+<hr>
+<h2 id="macOS-科学上网"><a href="#macOS-科学上网" class="headerlink" title="macOS 科学上网"></a>macOS 科学上网</h2><p>macOS下的 ShdowsocksX 或者 ShadowsocksX-NG都可以使用, 到 <a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">Shadowsocks官网的download页面</a>, 点进 Mac OS X下的<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases" target="_blank" rel="external">Github</a>, 下载ShadowsocksX-NG-1.3.2.zip, 解压, 复制.app文件到应用程序, 打开, 依然是配置服务器的IP, 端口, 密码和加密方式, 注意, 配置完后还是不能科学上网的, 这里有个坑, 点击纸飞机图标, 服务器, 这个IP:端口默认不勾, 需要先勾上, 再打开Shdowsocks:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/macOS%20ShadowsocksX.png" alt="macOS Shadowsocks"><br>然后, 愉快的玩耍吧.  </p>
+<hr>
+<h2 id="Linux-科学上网"><a href="#Linux-科学上网" class="headerlink" title="Linux 科学上网"></a>Linux 科学上网</h2><p>额, 这里就以Ubuntu 14.04为例, 有命令行配置和图形界面配置(shadowsocks-qt5)两种方式, 这里选择图形界面. 打开Ubuntu终端, 输入以下命令:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install shadowsocks-qt5</div></pre></td></tr></table></figure>
+<p>然后, 在应用中搜索 shadowsocks-qt5, 打开应用:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/Ubuntu%20Shadowsocks.png" alt="Ubuntu Shadowsocks">  </p>
+<p>OK, 选择, 点击Connect, 但只是启动了sslocal 但是要上网你还需要配置下浏览器到指定到代理端口比如1080才可以正式上网, 下载一个<a href="http://www.ubuntuchrome.com/" target="_blank" rel="external">Chrome</a>, 安装, 下载<a href="https://github.com/FelisCatus/SwitchyOmega/releases/" target="_blank" rel="external">SwitchyOmega插件</a>, 就是那个.crx文件, 下载完后, 拖进打开的Chrome扩展页面即可. 然后, 配置SwitchyOmega:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/Chrome%20peizhi.png" alt="SwitchyOmega">  </p>
+<p>配置完后关闭, 浏览器右上角图标:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/SwitchOmega2.png" alt="SwitchOmega2">  </p>
+<p>就可以愉快的上网了. 只是实现了浏览器代理, 并不是全局代理, 全局代理是有方法的, 我还没试好, 不过如果使用本文后面的路由器配置, 倒是可以全局的.  </p>
+<hr>
+<h2 id="Android-科学上网"><a href="#Android-科学上网" class="headerlink" title="Android 科学上网"></a>Android 科学上网</h2><p>点击 <a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">Github Android releases</a>,  下载 shadowsocks-nightly-3.4.1.apk, 然后放到你的Android手机进行安装, 安装完成后配置:<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/Android3.png" alt="Android Shasowsocks"><br>然后, 下面的图标变绿就可以啦.</p>
+<hr>
+<h2 id="Android-海外全家桶"><a href="#Android-海外全家桶" class="headerlink" title="Android 海外全家桶"></a>Android 海外全家桶</h2><p>你可以选择把手机刷成国际版或Android原版， 不然可以这样：<br>国内的Google服务大多被阉割了, 安装Google Play之类的还需要先安装Google服务, 以我的Mi Note Pro为例：</p>
+<ul>
+<li>应用商店搜索 谷歌应用下载器， 选择在豌豆荚或者百度搜索， 安装.</li>
+<li>打开你的Shadowsocks配置好科学上网.</li>
+<li>使用谷歌应用下载器安装 Google服务， Google Play等.</li>
+<li>有了Google Play, 安装Youtube, Facebook, Instagram, Whatsapp, Chrome等, 开始浪吧!  </li>
+</ul>
+<p><img src="http://7xtauc.com1.z0.glb.clouddn.com/Android5.png" alt="Android 5"></p>
+<hr>
+<h2 id="iOS-科学上网"><a href="#iOS-科学上网" class="headerlink" title="iOS 科学上网"></a>iOS 科学上网</h2><p>AppStore中搜索 ShadowConnect, 安装, 配置服务器IP, 端口, 密码, 加密方式就可以了.  </p>
+<hr>
+<h2 id="路由器科学上网"><a href="#路由器科学上网" class="headerlink" title="路由器科学上网"></a>路由器科学上网</h2><p>OpenWRT的路由器是可以装Shadowsocks, 我选购的是 <a href="https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-15486340428.18.F4Hbkp&amp;id=520355893549" target="_blank" rel="external">EA6400刷梅林</a> 的路由器, 268软妹币. 路由器回来后, 把台式机的网线拔了插路由器上, 再用送的网线连接路由器和电脑, 浏览器自动弹出一个 admin 设置密码和新密码的页面, 设置完成后, 可以浏览器中输入 192.168.1.1, 然后输入用户名admin, 密码为刚才设置的, 连接方式均为DHCP, 配置好2.4G和5G的无线网名字和密码, 进入EA6400梅林主页面, 左下有一个Software Center, 点击：<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/%E6%A2%85%E6%9E%971.png" alt="">  </p>
+<p>未安装中找到 Shadowsocks 安装， 安装完成后根据提示勾选, 配置和重启路由器, 我的配置如下：<br><img src="http://7xtauc.com1.z0.glb.clouddn.com/%E6%A2%85%E6%9E%972.png" alt=""><br>然后, 喜大普奔吧！</p>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">Shadowsocks官网</a></li>
+<li><a href="https://bwh1.net/index.php" target="_blank" rel="external">搬瓦工官网</a></li>
+<li><a href="http://banwagong.cn/gonglue.html" target="_blank" rel="external">搬瓦工中文介绍</a>  </li>
+<li><a href="https://openwrt.org/" target="_blank" rel="external">OpenWRT官网</a></li>
+<li><a href="https://github.com/shadowsocks" target="_blank" rel="external">Shadowsocks Github</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">Shadowsocks官方说明</a>  </li>
+<li><a href="https://www.zhihu.com/question/30771491" target="_blank" rel="external">哪些路由器对OpenWRT支持较好</a>  </li>
+<li><a href="https://www.zhihu.com/question/23655954" target="_blank" rel="external">OpenWRT上有哪些好玩的APP</a></li>
+<li><a href="https://www.zhihu.com/question/23363243" target="_blank" rel="external">如何从零开始学习OpenWrt？</a></li>
+<li><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html" target="_blank" rel="external">linux-ubuntu使用shadowsocks客户端配置</a>  </li>
+<li><a href="https://www.zhihu.com/question/22684124" target="_blank" rel="external">iOS版本的影梭怎么用？</a>  </li>
+<li><a href="https://www.zhihu.com/question/31054178" target="_blank" rel="external">搬瓦工在手机上怎么用?</a></li>
+<li><a href="https://busi.me/archives/173/" target="_blank" rel="external">SS全平台客户端APP下载</a>  </li>
+<li><a href="https://www.zhihu.com/question/20232626" target="_blank" rel="external">如何直接从 Google Play 下载 APK 文件？</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks-iOS/issues/156" target="_blank" rel="external">El Capitan 正式版下Shadowsocks没有?</a>  </li>
+<li><a href="https://zzz.buzz/zh/gfw/2016/02/16/deploy-shadowsocks-on-routers/" target="_blank" rel="external">在路由器上部署 shadowsock</a>  </li>
+<li><a href="https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details" target="_blank" rel="external">史上最详细的OpenWrt shadowsocks路由器自动翻墙教程(主要是4300)</a>  </li>
+<li><a href="https://www.logcg.com/archives/860.html" target="_blank" rel="external">路由器刷OpenWRT安装shadowsocks使用透明代理+去DNS污染</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前言介绍了一下背景, 然后给出了购买VPS， 配置Windows, macOS, Ubuntu, Android, iOS, macOS, 路由器的方法. 办公室或者家里的路由器配置好后, 任意设备连上Wifi就可以科学上网了! 在外面只有4G或者别人家的wifi时, 如果
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何优雅地使用Win10</title>
     <link href="http://yoursite.com/2017/05/12/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Win10/"/>
     <id>http://yoursite.com/2017/05/12/如何优雅的使用Win10/</id>
-    <published>2017-05-12T10:20:53.658Z</published>
-    <updated>2017-05-12T10:20:53.663Z</updated>
+    <published>2017-05-12T10:32:26.914Z</published>
+    <updated>2017-05-12T11:04:15.564Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="如何优雅地使用Win10"><a href="#如何优雅地使用Win10" class="headerlink" title="如何优雅地使用Win10"></a>如何优雅地使用Win10</h1><hr>
-<h2 id="硬件-系统-原则"><a href="#硬件-系统-原则" class="headerlink" title="硬件/系统/原则"></a>硬件/系统/原则</h2><p>硬件： 480G SSD + 8G 内存, 1000元（<del>可以</del>以内）可以配齐. 5到6年前的好多笔记本最大只支持8G内存.</p>
+    <content type="html"><![CDATA[<h2 id="硬件-系统-原则"><a href="#硬件-系统-原则" class="headerlink" title="硬件/系统/原则"></a>硬件/系统/原则</h2><p>硬件： 480G SSD + 8G 内存, 1000元（<del>可以</del>以内）可以配齐. 5到6年前的好多笔记本最大只支持8G内存.</p>
 <p>系统： Win10 (x86或x64).</p>
 <p>原则： 软件或应用的安装原则： 尽量 强大，好用，开源，免费， 跨平台, 无广告， 清爽.</p>
 <hr>
@@ -129,35 +210,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;如何优雅地使用Win10&quot;&gt;&lt;a href=&quot;#如何优雅地使用Win10&quot; class=&quot;headerlink&quot; title=&quot;如何优雅地使用Win10&quot;&gt;&lt;/a&gt;如何优雅地使用Win10&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;硬件-系统-原则&quot;&gt;&lt;a href=&quot;#
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/05/12/hello-world/"/>
-    <id>http://yoursite.com/2017/05/12/hello-world/</id>
-    <published>2017-05-12T10:20:53.652Z</published>
-    <updated>2017-05-12T10:20:53.657Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;h2 id=&quot;硬件-系统-原则&quot;&gt;&lt;a href=&quot;#硬件-系统-原则&quot; class=&quot;headerlink&quot; title=&quot;硬件/系统/原则&quot;&gt;&lt;/a&gt;硬件/系统/原则&lt;/h2&gt;&lt;p&gt;硬件： 480G SSD + 8G 内存, 1000元（&lt;del&gt;可以&lt;/del&gt;以内）可以
     
     </summary>
     
